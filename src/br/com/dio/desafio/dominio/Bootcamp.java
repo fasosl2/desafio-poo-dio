@@ -13,7 +13,23 @@ public class Bootcamp {
     private final LocalDate dataFinal = dataInicial.plusDays(45);
     private Set<Dev> devsInscritos = new HashSet<>();
     private Set<Conteudo> conteudos = new LinkedHashSet<>();
+    private String organizador; // Novo atributo
+    private boolean ativo; // Novo atributo
 
+
+    // Construtor adicional para facilitar a criação de Bootcamps
+    public Bootcamp() {
+        this.ativo = true; // Bootcamp ativo por padrão
+    }
+    // Construtor adicional para facilitar a criação de Bootcamps
+    public Bootcamp(String nome, String descricao, String organizador) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.organizador = organizador;
+        this.ativo = true; // Bootcamp ativo por padrão
+    }
+
+    
 
     public String getNome() {
         return nome;
@@ -55,16 +71,32 @@ public class Bootcamp {
         this.conteudos = conteudos;
     }
 
+    public String getOrganizador() {
+        return organizador;
+    }
+
+    public void setOrganizador(String organizador) {
+        this.organizador = organizador;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Bootcamp bootcamp = (Bootcamp) o;
-        return Objects.equals(nome, bootcamp.nome) && Objects.equals(descricao, bootcamp.descricao) && Objects.equals(dataInicial, bootcamp.dataInicial) && Objects.equals(dataFinal, bootcamp.dataFinal) && Objects.equals(devsInscritos, bootcamp.devsInscritos) && Objects.equals(conteudos, bootcamp.conteudos);
+        return ativo == bootcamp.ativo && Objects.equals(nome, bootcamp.nome) && Objects.equals(descricao, bootcamp.descricao) && Objects.equals(dataInicial, bootcamp.dataInicial) && Objects.equals(dataFinal, bootcamp.dataFinal) && Objects.equals(devsInscritos, bootcamp.devsInscritos) && Objects.equals(conteudos, bootcamp.conteudos) && Objects.equals(organizador, bootcamp.organizador);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, descricao, dataInicial, dataFinal, devsInscritos, conteudos);
+        return Objects.hash(nome, descricao, dataInicial, dataFinal, devsInscritos, conteudos, organizador, ativo);
     }
 }

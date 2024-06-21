@@ -2,9 +2,10 @@ package br.com.dio.desafio.dominio;
 
 import java.time.LocalDate;
 
-public class Mentoria extends Conteudo{
+public class Mentoria extends Conteudo {
 
     private LocalDate data;
+    private String mentor; // Novo atributo
 
     @Override
     public double calcularXp() {
@@ -22,12 +23,21 @@ public class Mentoria extends Conteudo{
         this.data = data;
     }
 
+    public String getMentor() {
+        return mentor;
+    }
+
+    public void setMentor(String mentor) {
+        this.mentor = mentor;
+    }
+
     @Override
     public String toString() {
         return "Mentoria{" +
                 "titulo='" + getTitulo() + '\'' +
                 ", descricao='" + getDescricao() + '\'' +
                 ", data=" + data +
+                ", mentor='" + mentor + '\'' +
                 '}';
     }
 }

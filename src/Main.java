@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
+        // Criando Cursos
         Curso curso1 = new Curso();
         curso1.setTitulo("curso java");
         curso1.setDescricao("descrição curso java");
@@ -17,15 +18,13 @@ public class Main {
         curso2.setDescricao("descrição curso js");
         curso2.setCargaHoraria(4);
 
+        // Criando Mentoria
         Mentoria mentoria = new Mentoria();
         mentoria.setTitulo("mentoria de java");
         mentoria.setDescricao("descrição mentoria java");
         mentoria.setData(LocalDate.now());
 
-        /*System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);*/
-
+        // Criando Bootcamp
         Bootcamp bootcamp = new Bootcamp();
         bootcamp.setNome("Bootcamp Java Developer");
         bootcamp.setDescricao("Descrição Bootcamp Java Developer");
@@ -33,6 +32,7 @@ public class Main {
         bootcamp.getConteudos().add(curso2);
         bootcamp.getConteudos().add(mentoria);
 
+        // Criando Devs
         Dev devCamila = new Dev();
         devCamila.setNome("Camila");
         devCamila.inscreverBootcamp(bootcamp);
@@ -47,7 +47,7 @@ public class Main {
         System.out.println("-------");
 
         Dev devJoao = new Dev();
-        devJoao.setNome("Joao");
+        devJoao.setNome("João");
         devJoao.inscreverBootcamp(bootcamp);
         System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
         devJoao.progredir();
@@ -55,9 +55,38 @@ public class Main {
         devJoao.progredir();
         System.out.println("-");
         System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
-        System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
+        System.out.println("Conteúdos Concluídos João:" + devJoao.getConteudosConcluidos());
         System.out.println("XP:" + devJoao.calcularTotalXp());
 
-    }
+        // Exibindo informações adicionais
+        System.out.println("-------");
+        System.out.println("Detalhes do Bootcamp:");
+        System.out.println("Nome: " + bootcamp.getNome());
+        System.out.println("Descrição: " + bootcamp.getDescricao());
+        System.out.println("Data Inicial: " + bootcamp.getDataInicial());
+        System.out.println("Data Final: " + bootcamp.getDataFinal());
+        System.out.println("Devs Inscritos: " + bootcamp.getDevsInscritos());
+        System.out.println("Conteúdos do Bootcamp: " + bootcamp.getConteudos());
 
+        System.out.println("-------");
+        System.out.println("Detalhes do Curso 1:");
+        System.out.println("Título: " + curso1.getTitulo());
+        System.out.println("Descrição: " + curso1.getDescricao());
+        System.out.println("Carga Horária: " + curso1.getCargaHoraria());
+        System.out.println("XP do Curso 1: " + curso1.calcularXp());
+
+        System.out.println("-------");
+        System.out.println("Detalhes do Curso 2:");
+        System.out.println("Título: " + curso2.getTitulo());
+        System.out.println("Descrição: " + curso2.getDescricao());
+        System.out.println("Carga Horária: " + curso2.getCargaHoraria());
+        System.out.println("XP do Curso 2: " + curso2.calcularXp());
+
+        System.out.println("-------");
+        System.out.println("Detalhes da Mentoria:");
+        System.out.println("Título: " + mentoria.getTitulo());
+        System.out.println("Descrição: " + mentoria.getDescricao());
+        System.out.println("Data: " + mentoria.getData());
+        System.out.println("XP da Mentoria: " + mentoria.calcularXp());
+    }
 }
